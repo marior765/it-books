@@ -1,0 +1,41 @@
+{
+  "name": "books",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "build": "webpack --mode production ./client/src/index.js --output ./client/public/main.js",
+    "dev": "webpack --mode development ./client/src/index.js --output ./client/public/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marior765/it-books.git"
+  },
+  "author": "Denys Bohatyrchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marior765/it-books/issues"
+  },
+  "homepage": "https://github.com/marior765/it-books#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "concurrently": "^4.0.1",
+    "css-loader": "^1.0.0",
+    "nodemon": "^1.18.4",
+    "style-loader": "^0.23.0",
+    "svg-inline-loader": "^0.8.0"
+  }
+}
