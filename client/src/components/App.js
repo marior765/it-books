@@ -1,8 +1,12 @@
 import React from 'react';
+import { Switch, Route } from 'react-router';
+import Header from './Header';
 
 const App = () => {
     return(
-        <h1>Hello!</h1>
+        <div>
+            <Header />
+        </div>
     )
 }
 

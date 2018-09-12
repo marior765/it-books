@@ -1,4 +1,5 @@
 module.exports = {
+  entry: ['babel-polyfill'],
     module: {
       rules: [
         {
@@ -13,10 +14,12 @@ module.exports = {
           use: [ "style-loader", "css-loader" ]
         },
         {
-          test: /\.svg$/,
-          use: {
-            loader: "svg-inline-loader"
-          }
+          test: /\.scss$/,
+          use: [
+            "style-loader",
+            "css-loader",
+            "sass-loader"
+          ]
         }
       ]
     }
