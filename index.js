@@ -1,18 +1,18 @@
 const express = require('express');
 const app     = express();
 const path    = require('path');
+const mongoose = require('mongoose');
+const keys = require('./server/config/keys');
+require('./server/models/Book');
 
-const port = 3000;
+mongoose.connect(keys.mongoURI);
+
+const port = 3030;
 
 app.use(express.static(path.join(__dirname, 'client/public')));
-
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'client/public', 'index.html'));
 });
-
-app.get('/api/hello', (req, res) => {
-    res.send({ express: 'Hello From Express' });
-  });
 
 app.listen(port, () => {
   console.log(`App listening on ${port}`);
