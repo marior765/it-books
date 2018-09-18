@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { connect } from 'react-redux';
+import './Books.scss';
+import LilItem from './LilItem';
+import { INIT_BOOKSDATA } from '../../reducers/consts';
 
 
 class Books extends Component {
@@ -8,19 +12,34 @@ class Books extends Component {
     }
     componentWillMount() {
         axios.get('/data')
-            .then(response => this.setState({ id: response.data }))
+            .then(response => this.props.initData(response.data))
     }
     render () {
         return(
             <div>
-                <p>gfgs</p>
                 {console.log(this.state.id)}
-                {this.state.id.map((item, id) => (
-                    <p key={id}>{item._id}</p>
+                {this.props.data.map(item => (
+                    <LilItem 
+                        key={item.ID}
+                        src={item.link}
+                        title={item.name}
+                        description={item.description}
+                     />
                 ))}
             </div>
         )
     }
 } 
 
-export default Books;
+const mapStateToProps = state => {
+    return {
+        data: state.booksData
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        initData: (data) => dispatch({type: INIT_BOOKSDATA, payload: data})
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Books);

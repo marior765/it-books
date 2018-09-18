@@ -7,9 +7,10 @@ const BookSchema = new Schema({
     year: Number,
     language: String,
     audience: String,
-    discription: String,
+    description: String,
     plus: String,
-    minus: String
+    minus: String,
+    link: String
 });
 
 mongoose.model('books', BookSchema);
