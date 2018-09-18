@@ -7,7 +7,7 @@ const Footer = () => {
         <div>
             <nav>
                 <div className="nav-wrapper #82b1ff blue accent-1">
-                    <a style={nl} href="" className="brand-logo"><Logo /></a>
+                    <a style={nl} href="/" className="brand-logo"><Logo /></a>
                 </div>
             </nav>
         </div>

@@ -13,3 +13,8 @@ const BookSchema = new Schema({
 });
 
 mongoose.model('books', BookSchema);
+
+// const Book = mongoose.model('books');
+// Book.create({name: 'C'});
+// const result = Book.findOne({name: 'C'});
+// console.log(result);

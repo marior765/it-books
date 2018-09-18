@@ -1,14 +1,26 @@
-import React from 'react'
-const mongoose = require('mongoose');
+import React, { Component } from 'react'
+import axios from 'axios';
 
-const Book = mongoose.model('books');
 
-const Books = () => {
-    return (
-        <div>
-            <h1>Books</h1>
-        </div>
-    )
+class Books extends Component {
+    state = {
+        id: []
+    }
+    componentWillMount() {
+        axios.get('/data')
+            .then(response => this.setState({ id: response.data }))
+    }
+    render () {
+        return(
+            <div>
+                <p>gfgs</p>
+                {console.log(this.state.id)}
+                {this.state.id.map((item, id) => (
+                    <p key={id}>{item._id}</p>
+                ))}
+            </div>
+        )
+    }
 } 
 
 export default Books;
